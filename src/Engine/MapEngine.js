@@ -41,6 +41,7 @@ define(function( require )
 	var BasicInfo        = require('UI/Components/BasicInfo/BasicInfo');
 	var WinStats         = require('UI/Components/WinStats/WinStats');
 	var Inventory        = require('UI/Components/Inventory/Inventory');
+	var ShortCut         = require('UI/Components/ShortCut/ShortCut');
 	var Equipment        = require('UI/Components/Equipment/Equipment');
 	var StatusIcons      = require('UI/Components/StatusIcons/StatusIcons');
 
@@ -113,6 +114,7 @@ define(function( require )
 		require('./MapEngine/Storage').call();
 		require('./MapEngine/Group').call();
 		require('./MapEngine/Guild').call();
+		require('./MapEngine/Skill').call();
 	}
 
 
@@ -208,6 +210,7 @@ define(function( require )
 			Inventory.append();
 			Equipment.append();
 			StatusIcons.append();
+			ShortCut.append();
 
 			// Map loaded
 			Network.sendPacket(
@@ -343,6 +346,7 @@ define(function( require )
 		else {
 			StatusIcons.clean();
 			ChatBox.clean();
+			ShortCut.clean();
 			MapRenderer.free();
 			Renderer.stop();
 			OnRestart();
